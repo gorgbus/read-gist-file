@@ -1,5 +1,10 @@
 name: "Read Gist File"
 description: "Returns contents of selected file from selected gist"
+
+branding:
+  icon: "arrow-down"
+  color: "purple"
+
 inputs:
   gist_id:
     description: "id of the gist"
