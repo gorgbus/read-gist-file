@@ -9886,8 +9886,8 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 }
 
 ;// CONCATENATED MODULE: ./index.js
-
 const core = __nccwpck_require__(3722);
+
 
 (
     async () => {
@@ -9907,7 +9907,7 @@ const core = __nccwpck_require__(3722);
             let file;
         
             if (!fileName) file = files[0];
-            else if (files.some(file => file.filename === fileName)) file = files.find(file => file === fileName);
+            else if (files.some(file => file.filename === fileName)) file = files.find(file => file.filename === fileName);
             else throw "No file matched the provided name";
             
             core.setOutput("file", file.content);

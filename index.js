@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
 const core = require("@actions/core");
+import fetch from "node-fetch";
 
 (
     async () => {
@@ -19,7 +19,7 @@ const core = require("@actions/core");
             let file;
         
             if (!fileName) file = files[0];
-            else if (files.some(file => file.filename === fileName)) file = files.find(file => file === fileName);
+            else if (files.some(file => file.filename === fileName)) file = files.find(file => file.filename === fileName);
             else throw "No file matched the provided name";
             
             core.setOutput("file", file.content);
