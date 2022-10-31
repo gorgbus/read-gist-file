@@ -8,8 +8,8 @@ inputs:
     description: "name of the file you want to get"
 
 outputs:
-  file:
-    description: "file from the gist"
+  content:
+    description: "file contents from the gist"
 
 runs:
   using: "node16"

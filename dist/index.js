@@ -9909,10 +9909,12 @@ const core = __nccwpck_require__(3722);
             if (!fileName) file = files[0];
             else if (files.some(file => file.filename === fileName)) file = files.find(file => file.filename === fileName);
             else throw "No file matched the provided name";
-            
-            core.setOutput("file", file.content);
+
+            if (!file.content) throw "File doesn't have any content";
+
+            core.setOutput("content", file.content);
         } catch (err) {
-            core.setFailed(err.message);
+            core.setFailed(err);
         }
     }
 )();
