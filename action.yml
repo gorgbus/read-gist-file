@@ -1,0 +1,16 @@
+name: "Read Gist File"
+description: "Returns contents selected file from selected gist"
+inputs:
+  gist_id:
+    description: "id of the gist"
+    required: true
+  file_name:
+    description: "name of the file you want to get"
+
+outputs:
+  file:
+    description: "file from the gist"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
