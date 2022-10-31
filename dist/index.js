@@ -7651,18 +7651,6 @@ return new B(c,{type:"multipart/form-data; boundary="+b})}
 /******/ 	__nccwpck_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -7767,9 +7755,6 @@ var __webpack_exports__ = {};
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
-var core = __nccwpck_require__(3722);
-var core_default = /*#__PURE__*/__nccwpck_require__.n(core);
 ;// CONCATENATED MODULE: external "node:http"
 const external_node_http_namespaceObject = require("node:http");
 ;// CONCATENATED MODULE: external "node:https"
@@ -9902,12 +9887,12 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 
 ;// CONCATENATED MODULE: ./index.js
 
-
+const core = __nccwpck_require__(3722);
 
 (
     async () => {
         try {
-            const gistId = core_default().getInput("gist_id");
+            const gistId = core.getInput("gist_id");
 
             const res = await fetch(`https://api.github.com/gists/${gistId}`);
 
@@ -9917,7 +9902,7 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 
             if (!data.files) throw "No files were found";
 
-            const fileName = core_default().getInput("file_name");
+            const fileName = core.getInput("file_name");
             const files = Object.values(data.files);
             let file;
         
@@ -9925,9 +9910,9 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
             else if (files.some(file => file.filename === fileName)) file = files.find(file => file === fileName);
             else throw "No file matched the provided name";
             
-            core_default().setOutput("file", file.content);
+            core.setOutput("file", file.content);
         } catch (err) {
-            core_default().setFailed(err.message);
+            core.setFailed(err.message);
         }
     }
 )();
